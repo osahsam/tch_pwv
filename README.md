@@ -18,7 +18,7 @@ S. Osah¹*, A. A. Acheampong¹, S. A. Andam-Akorful¹, C. Gameti¹, R. M. Thunda
 This repository contains scripts and resources used in the research titled:  
 **“A Three-Cornered Hat-Based Comparison of GNSS, VMF3, and ERA5 Precipitable Water Vapour Datasets over Africa.”**
 
-The study evaluates the uncertainty and reliability of three precipitable water vapour (PWV) datasets — **GNSS**, **VMF3**, and **ERA5** — across 31 African GNSS stations (2015–2022).  
+The study evaluates the uncertainty and reliability of three precipitable water vapour (PWV) datasets — **GNSS**, **VMF3**, and **ERA5** — across 27 African GNSS stations (2015–2022).  
 Three complementary methods were implemented to quantify uncertainty:
 - **Three-Cornered Hat (3CH)**
 - **Extended Triple Collocation (ETC)**
