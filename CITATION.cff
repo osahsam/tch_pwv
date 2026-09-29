@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated manuscript and this software repository."
+title: "tch_pwv: 3CH, ETC, and direct-comparison analysis of GNSS, VMF3, and ERA5 PWV over Africa"
+type: software
+authors:
+  - family-names: Osah
+    given-names: Samuel
+    email: osahsamuel@knust.edu.gh
+  - family-names: Acheampong
+    given-names: A. A.
+  - family-names: Andam-Akorful
+    given-names: S. A.
+  - family-names: Gameti
+    given-names: C.
+repository-code: "https://github.com/osahsam/tch_pwv"
+license: Apache-2.0
+version: "1.0.0-revised-27station"
+date-released: 2026-09-29

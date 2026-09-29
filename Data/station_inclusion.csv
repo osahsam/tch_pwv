@@ -1,0 +1,32 @@
+STN,Valid_collocated_days,Status,Criterion,Reason
+ABPO,2074,Retained,>=700 days,Retained for final 27-station analysis
+ADIS,1921,Retained,>=700 days,Retained for final 27-station analysis
+BJCO,1424,Retained,>=700 days,Retained for final 27-station analysis
+CPVG,903,Retained,>=700 days,Retained for final 27-station analysis
+DAKR,1938,Retained,>=700 days,Retained for final 27-station analysis
+DEAR,1604,Retained,>=700 days,Retained for final 27-station analysis
+HARB,2463,Retained,>=700 days,Retained for final 27-station analysis
+HNUS,1564,Retained,>=700 days,Retained for final 27-station analysis
+HRAO,2364,Retained,>=700 days,Retained for final 27-station analysis
+MAL2,2333,Retained,>=700 days,Retained for final 27-station analysis
+MBAR,2036,Retained,>=700 days,Retained for final 27-station analysis
+MFKG,1380,Retained,>=700 days,Retained for final 27-station analysis
+MOIU,1070,Retained,>=700 days,Retained for final 27-station analysis
+NKLG,2495,Retained,>=700 days,Retained for final 27-station analysis
+RABT,1866,Retained,>=700 days,Retained for final 27-station analysis
+RBAY,1222,Retained,>=700 days,Retained for final 27-station analysis
+SBOK,1606,Retained,>=700 days,Retained for final 27-station analysis
+SEY2,2334,Retained,>=700 days,Retained for final 27-station analysis
+SEYG,1297,Retained,>=700 days,Retained for final 27-station analysis
+SUTH,2643,Retained,>=700 days,Retained for final 27-station analysis
+SUTM,1605,Retained,>=700 days,Retained for final 27-station analysis
+TDOU,1614,Retained,>=700 days,Retained for final 27-station analysis
+ULDI,1599,Retained,>=700 days,Retained for final 27-station analysis
+VACS,2188,Retained,>=700 days,Retained for final 27-station analysis
+WIND,1353,Retained,>=700 days,Retained for final 27-station analysis
+YKRO,1932,Retained,>=700 days,Retained for final 27-station analysis
+ZAMB,2332,Retained,>=700 days,Retained for final 27-station analysis
+CGGN,362,Excluded,<700 days,Excluded by final data-completeness threshold (<700 valid collocated days)
+DJIG,13,Excluded,<700 days,Excluded by final data-completeness threshold (<700 valid collocated days)
+NURK,97,Excluded,<700 days,Excluded by final data-completeness threshold (<700 valid collocated days)
+RCMN,314,Excluded,<700 days,Excluded by final data-completeness threshold (<700 valid collocated days)
