@@ -1,0 +1,7 @@
+Test,ANOVA_F,ANOVA_p,Kruskal_H,Kruskal_p,Interpretation
+Trend Slopes,0.145365,0.864940,0.638763,0.726598,No significant difference
+Trend Variance Contribution,0.007238,0.992789,0.090067,0.955966,No significant difference
+Delta Sigma Percent,0.011430,0.988637,0.010840,0.994595,No significant difference
+Variance Reduction,0.013088,0.987000,0.010840,0.994595,No significant difference
+Trend Strength F_T,0.014279,0.985825,0.035579,0.982368,No significant difference
+Seasonal Strength F_S,0.000745,0.999255,0.019673,0.990212,No significant difference

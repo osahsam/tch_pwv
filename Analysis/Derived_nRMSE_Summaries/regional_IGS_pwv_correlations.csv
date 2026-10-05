@@ -1,0 +1,6 @@
+Region,N,Pearson_r_PWV_vs_IGS_abs_RMSE,Pearson_r_PWV_vs_IGS_nRMSE
+Northern Africa,1,,
+Central Africa,1,,
+Southern Africa,13,0.800041,-0.877164
+Eastern Africa,8,0.638469,-0.871591
+Western Africa,4,0.797694,-0.440409

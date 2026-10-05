@@ -1,0 +1,74 @@
+================================================================================
+LINEAR vs QUADRATIC DETRENDING COMPARISON - SUMMARY STATISTICS
+================================================================================
+
+DATASET CHARACTERISTICS
+--------------------------------------------------------------------------------
+Total station-product combinations: 81
+Mean observations per series: 1821
+Mean time span: 7.3 years
+
+TREND MAGNITUDES
+--------------------------------------------------------------------------------
+Linear trends (mm/yr):
+  Mean:    -0.2084
+  Median:  -0.1360
+  Std:      0.4573
+
+Quadratic effective slopes (mm/yr):
+  Mean:    -0.2013
+
+Quadratic coefficient (a2):
+  Mean:    -0.012488
+  Median:  -0.031561
+
+MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+RMSE improvement with quadratic:
+  Mean:    0.256%
+  Median:  0.068%
+
+R-squared improvement:
+  Delta-R2:     0.005081
+  Delta-Adj-R2: 0.004500
+
+Information criteria:
+  Delta-AIC:      -7.134
+  Delta-BIC:      -1.662
+
+STATISTICAL SIGNIFICANCE
+--------------------------------------------------------------------------------
+F-test (α=0.05):
+  Significant cases: 34/81
+  Percentage: 42.0%
+
+Model preference by information criteria:
+  Prefer quadratic (AIC): 34/81
+  Prefer quadratic (BIC): 22/81
+
+PRODUCT-SPECIFIC TRENDS
+--------------------------------------------------------------------------------
+Linear slopes (mm/yr):
+  IGS:  -0.2219
+  VMF3: -0.1613
+  ERA5: -0.2421
+
+RMSE improvement (%):
+  IGS:   0.243
+  VMF3:  0.255
+  ERA5:  0.270
+
+================================================================================
+RECOMMENDATION
+================================================================================
+
+RECOMMENDED MODEL: QUADRATIC DETRENDING
+
+JUSTIFICATION:
+The quadratic model shows statistically significant improvement:
+  - Delta-R2 = 0.005081
+  - F-test significance: 42.0%
+  - RMSE improvement: 0.26%
+Quadratic detrending captures non-linear trends in the data.
+
+================================================================================

@@ -1,0 +1,120 @@
+================================================================================
+PWV DATASET RANKING ANALYSIS - COMPREHENSIVE REPORT
+================================================================================
+
+METHODOLOGY
+--------------------------------------------------------------------------------
+Composite RMSE Ranking Approach:
+ - 3CH Method Weight: 0.5
+ - ETC Method Weight: 0.5
+ - Formula: Composite_RMSE = w1×RMSE_3CH + w2×RMSE_ETC
+ - Normalization: Disabled
+ - Statistical Test: Wilcoxon Signed-Rank Test
+ - Significance Level: p < 0.05
+
+OVERALL PERFORMANCE STATISTICS
+--------------------------------------------------------------------------------
+
+GNSS:
+ Mean Composite RMSE: 1.556 mm
+ Median Composite RMSE: 1.549 mm
+ Standard Deviation: 0.047 mm
+ Min RMSE: 1.510 mm
+ Max RMSE: 1.634 mm
+ Regions Won: 0 (0.0%)
+ Average Rank: 3.00
+ 1st Place Count: 0
+ 2nd Place Count: 0
+ 3rd Place Count: 5
+
+ERA5:
+ Mean Composite RMSE: 1.171 mm
+ Median Composite RMSE: 1.230 mm
+ Standard Deviation: 0.155 mm
+ Min RMSE: 1.000 mm
+ Max RMSE: 1.361 mm
+ Regions Won: 2 (40.0%)
+ Average Rank: 1.60
+ 1st Place Count: 2
+ 2nd Place Count: 3
+ 3rd Place Count: 0
+
+VMF3:
+ Mean Composite RMSE: 1.149 mm
+ Median Composite RMSE: 1.174 mm
+ Standard Deviation: 0.143 mm
+ Min RMSE: 0.910 mm
+ Max RMSE: 1.280 mm
+ Regions Won: 3 (60.0%)
+ Average Rank: 1.40
+ 1st Place Count: 3
+ 2nd Place Count: 2
+ 3rd Place Count: 0
+
+================================================================================
+PAIRWISE STATISTICAL SIGNIFICANCE (Wilcoxon Signed-Rank Test)
+================================================================================
+
+GNSS vs ERA5:
+ Test Statistic: 0.0000
+ P-value: 0.062500 ns
+ Interpretation: Not significant
+ Mean Difference: 0.384 mm
+ Better Dataset: ERA5
+ Sample Size: 5
+
+GNSS vs VMF3:
+ Test Statistic: 0.0000
+ P-value: 0.062500 ns
+ Interpretation: Not significant
+ Mean Difference: 0.407 mm
+ Better Dataset: VMF3
+ Sample Size: 5
+
+ERA5 vs VMF3:
+ Test Statistic: 6.0000
+ P-value: 0.812500 ns
+ Interpretation: Not significant
+ Mean Difference: 0.023 mm
+ Better Dataset: VMF3
+ Sample Size: 5
+
+Significance levels: *** p<0.001, ** p<0.01, * p<0.05, ns = not significant
+
+================================================================================
+REGIONAL RESULTS
+================================================================================
+
+North Africa:
+ GNSS: 1.510 mm (Rank 3, Margin: 0.280 mm)
+ ERA5: 1.230 mm (Rank 1, Margin: 0.000 mm)
+ VMF3: 1.280 mm (Rank 2, Margin: 0.050 mm)
+ ★ BEST: ERA5
+
+Central Africa:
+ GNSS: 1.550 mm (Rank 3, Margin: 0.640 mm)
+ ERA5: 1.000 mm (Rank 2, Margin: 0.090 mm)
+ VMF3: 0.910 mm (Rank 1, Margin: 0.000 mm)
+ ★ BEST: VMF3
+
+Southern Africa:
+ GNSS: 1.536 mm (Rank 3, Margin: 0.514 mm)
+ ERA5: 1.022 mm (Rank 1, Margin: 0.000 mm)
+ VMF3: 1.148 mm (Rank 2, Margin: 0.126 mm)
+ ★ BEST: ERA5
+
+East Africa:
+ GNSS: 1.549 mm (Rank 3, Margin: 0.317 mm)
+ ERA5: 1.244 mm (Rank 2, Margin: 0.013 mm)
+ VMF3: 1.231 mm (Rank 1, Margin: 0.000 mm)
+ ★ BEST: VMF3
+
+West Africa:
+ GNSS: 1.634 mm (Rank 3, Margin: 0.460 mm)
+ ERA5: 1.361 mm (Rank 2, Margin: 0.188 mm)
+ VMF3: 1.174 mm (Rank 1, Margin: 0.000 mm)
+ ★ BEST: VMF3
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================

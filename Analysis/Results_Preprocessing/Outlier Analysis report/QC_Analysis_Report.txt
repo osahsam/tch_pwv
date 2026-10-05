@@ -1,0 +1,104 @@
+======================================================================
+PWV QUALITY CONTROL AND OUTLIER ANALYSIS REPORT
+======================================================================
+
+1. SAMPLE SIZE ASSESSMENT
+----------------------------------------------------------------------
+Total Stations Analyzed: 27
+
+Sample Size Categories:
+ Excellent (>=700 days): 27 (100.0%)
+ Acceptable (>=365 days):  0 (  0.0%)
+ Warning (>=180 days):  0 (  0.0%)
+ Insufficient (<180 days):  0 (  0.0%)
+
+Sample Size Statistics:
+ Mean:  1820.7 days
+ Median:  1866.0 days
+ Std Dev:   464.1 days
+ Range: 903 - 2643 days
+
+
+2. OUTLIER DETECTION SUMMARY
+----------------------------------------------------------------------
+Methods Applied:
+ 1. Hampel Filter (window=7, σ=3.0)
+ 2. IQR Method (multiplier=1.5)
+ 3. Z-score Method (threshold=3.0)
+
+Average Outlier Percentages by Product and Method:
+Product    Method     Mean %     Median %   Std %     
+----------------------------------------------------------------------
+IGS        Hampel         6.13     6.01     0.79
+IGS        IQR            1.14     0.08     2.02
+IGS        Zscore         0.36     0.07     0.55
+VMF3       Hampel         6.39     6.36     0.75
+VMF3       IQR            1.26     0.15     2.05
+VMF3       Zscore         0.41     0.07     0.62
+ERA5       Hampel         6.25     6.21     0.74
+ERA5       IQR            1.18     0.08     1.92
+ERA5       Zscore         0.42     0.00     0.65
+
+3. METHOD EFFECTIVENESS ANALYSIS
+----------------------------------------------------------------------
+
+IGS PWV:
+ Most Conservative (fewest outliers): Zscore (0.36%)
+ Most Sensitive (most outliers): Hampel (6.13%)
+
+VMF3 PWV:
+ Most Conservative (fewest outliers): Zscore (0.41%)
+ Most Sensitive (most outliers): Hampel (6.39%)
+
+ERA5 PWV:
+ Most Conservative (fewest outliers): Zscore (0.42%)
+ Most Sensitive (most outliers): Hampel (6.25%)
+
+4. RECOMMENDATIONS FOR 3CH/ETC ANALYSIS
+----------------------------------------------------------------------
+
+Stations Recommended for Analysis:
+ Total: 27 stations
+ Stations: ABPO, ADIS, BJCO, CPVG, DAKR, DEAR, HARB, HNUS, HRAO, MAL2, MBAR, MFKG, MOIU, NKLG, RABT, RBAY, SBOK, SEY2, SEYG, SUTH, SUTM, TDOU, ULDI, VACS, WIND, YKRO, ZAMB
+
+Stations Requiring Caution:
+Stations Not Recommended:
+
+5. QUALITY CONTROL IMPACT ASSESSMENT
+----------------------------------------------------------------------
+
+Overall QC Effectiveness:
+
+IGS PWV:
+ Hampel: ~6.13% of data flagged and cleaned
+ IQR: ~1.14% of data flagged and cleaned
+ Zscore: ~0.36% of data flagged and cleaned
+
+VMF3 PWV:
+ Hampel: ~6.39% of data flagged and cleaned
+ IQR: ~1.26% of data flagged and cleaned
+ Zscore: ~0.41% of data flagged and cleaned
+
+ERA5 PWV:
+ Hampel: ~6.25% of data flagged and cleaned
+ IQR: ~1.18% of data flagged and cleaned
+ Zscore: ~0.42% of data flagged and cleaned
+
+6. DATA PREPROCESSING SUMMARY
+----------------------------------------------------------------------
+Steps Applied:
+ 1. Physical plausibility screening (0-100 mm)
+ 2. Outlier detection using applied method(s)
+ 3. Outlier replacement with robust statistics
+ 4. Gap interpolation for continuity
+ 5. Time matching and detrending (implicit in daily means)
+ 6. Polynomial detrending analysis (degree 2) (NEW)
+
+Reference:
+ - Hampel, F.R. (1974). JASA 69(346), 383-393.
+ - Tukey, J.W. (1977). Exploratory Data Analysis. Addison-Wesley.
+ - Leys, C., et al. (2013). J. Exp. Soc. Psychol. 49, 764-766.
+
+======================================================================
+END OF REPORT
+======================================================================

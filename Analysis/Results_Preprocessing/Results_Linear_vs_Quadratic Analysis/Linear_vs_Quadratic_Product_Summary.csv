@@ -1,0 +1,6 @@
+,Linear_Slope_mm_yr,Linear_Slope_mm_yr,Linear_Slope_mm_yr,Linear_Slope_mm_yr,Linear_Slope_mm_yr,Quad_Effective_Slope_mm_yr,Quad_Effective_Slope_mm_yr,RMSE_Improvement_pct,RMSE_Improvement_pct,RMSE_Improvement_pct,RMSE_Improvement_pct,Delta_R2,Delta_R2,Quadratic_Significant
+,mean,median,std,min,max,mean,median,mean,median,min,max,mean,median,sum
+Product,,,,,,,,,,,,,,
+ERA5,-0.242139,-0.172963,0.478546,-2.492505,0.259931,-0.230775,-0.169042,0.269784,0.06786,0.000295,1.59097,0.005355,0.001354,11
+IGS,-0.221858,-0.182354,0.459713,-2.327535,0.258154,-0.215059,-0.16601,0.242806,0.069284,9.5e-05,2.005151,0.00482,0.001385,11
+VMF3,-0.161288,-0.115217,0.446574,-2.230568,0.307987,-0.158182,-0.112885,0.255445,0.065357,0.000142,1.812081,0.005069,0.001306,12

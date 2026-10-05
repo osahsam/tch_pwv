@@ -1,9 +1,13 @@
 # =============================================================================
 # Import Required Libraries
 # =============================================================================
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 # import geopandas as gpd
 # import matplotlib.pyplot as plt
 # import cartopy.crs as ccrs
@@ -11,7 +15,10 @@ import matplotlib.pyplot as plt
 # from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 # Load the uploaded Excel file to analyze the data
-file_path = 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/STATISTICAL analysis (Africa) 2_2.xlsx'
+# file_path = 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/STATISTICAL analysis (Africa) 2_2.xlsx'
+
+file_path = REPO_ROOT / "Analysis" / "Results_3CH, ETC & DC" / "STATISTICAL analysis (Africa)_OUTLIER_removal+detrended.xlsx"
+
 # data = pd.read_excel(file_path)
 # # Display the first few rows of the data to understand its structure
 # print(data.head())
@@ -127,11 +134,13 @@ plt.tight_layout()
 # =============================================================================
 # Save the plot as a high-resolution image file
 # =============================================================================
-output_file_path= (
-    'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/'
-    'DATA ANALYTICs/3CH analysis/FIGs_3ch/'
-    'BARplot_rmse_3CH_5.png'
-)
+# output_file_path= (
+#     'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/'
+#     'DATA ANALYTICs/3CH analysis/FIGs_3ch/'
+#     'BARplot_rmse_3CH_5.png'
+# )
+
+output_file_path = REPO_ROOT / "Figures" / "BARplot_rmse_3CH.png"
 
 plt.savefig(output_file_path, format='png', dpi=1000, bbox_inches='tight')
 

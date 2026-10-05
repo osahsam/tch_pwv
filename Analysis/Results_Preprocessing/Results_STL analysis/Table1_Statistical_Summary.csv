@@ -1,0 +1,4 @@
+Product,N_Stations,Mean_Slope_mm_yr,Significant_Trends_pct,Trend_Variance_pct,Seasonal_Variance_pct,Residual_Variance_pct,Orig_Stationary_N,Resid_Stationary_N,Mean_Delta_Sigma_pct,Std_Delta_Sigma_pct,Mean_Variance_Reduction_pct,Mean_Trend_Strength_F_T,Mean_Seasonal_Strength_F_S
+IGS,27,-0.2220,96.2963,2.4825,56.2376,41.2800,27,27,-27.7748,10.8442,46.7028,0.0295,0.4560
+VMF3,27,-0.1658,88.8889,2.4285,56.2663,41.3052,27,27,-27.5825,10.6994,46.4547,0.0291,0.4551
+ERA5,27,-0.2462,100.0000,2.5082,56.2831,41.2087,27,27,-28.0217,10.5502,47.1193,0.0308,0.4567

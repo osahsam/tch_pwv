@@ -1,0 +1,105 @@
+================================================================================
+STL DETRENDING ANALYSIS - KEY FINDINGS FOR AGU MANUSCRIPT
+================================================================================
+
+MEASURING STRENGTH OF TREND AND SEASONALITY
+--------------------------------------------------------------------------------
+Using variance-based metrics (Wang, Smith, & Hyndman, 2006):
+F_T = max(0, [Var(Y - S) - Var(R)] / Var(Y))  # Trend strength
+F_S = max(0, [Var(Y - T) - Var(R)] / Var(Y))  # Seasonal strength
+F_T/F_S ~ 0: weak; ~ 1: strong
+
+1. OVERALL DATASET CHARACTERISTICS
+--------------------------------------------------------------------------------
+ Total stations analyzed: 27
+ Total series analyzed: 81
+ Products: IGS, VMF3, ERA5
+ Mean observation period: 2006 days (5.5 years)
+
+2. TREND ANALYSIS
+--------------------------------------------------------------------------------
+ IGS:
+  Mean trend: -0.2220 ± 0.5755 mm/year
+  Significant trends (p < 0.05): 26/27 (96.3%)
+  Trend magnitude: -8.688% per decade
+  Trend strength F_T: 0.030 (weak <0.2, moderate 0.2-0.5, strong >0.5)
+ VMF3:
+  Mean trend: -0.1658 ± 0.5368 mm/year
+  Significant trends (p < 0.05): 24/27 (88.9%)
+  Trend magnitude: -6.580% per decade
+  Trend strength F_T: 0.029 (weak <0.2, moderate 0.2-0.5, strong >0.5)
+ ERA5:
+  Mean trend: -0.2462 ± 0.5730 mm/year
+  Significant trends (p < 0.05): 27/27 (100.0%)
+  Trend magnitude: -9.718% per decade
+  Trend strength F_T: 0.031 (weak <0.2, moderate 0.2-0.5, strong >0.5)
+
+3. VARIANCE DECOMPOSITION
+--------------------------------------------------------------------------------
+ IGS:
+  Trend contribution: 2.48% ± 2.30%
+  Seasonal contribution: 56.24% ± 10.47%
+  Residual contribution: 41.28% ± 9.89%
+  Seasonal strength F_S: 0.456 (weak <0.2, moderate 0.2-0.5, strong >0.5)
+ VMF3:
+  Trend contribution: 2.43% ± 2.44%
+  Seasonal contribution: 56.27% ± 10.05%
+  Residual contribution: 41.31% ± 9.54%
+  Seasonal strength F_S: 0.455 (weak <0.2, moderate 0.2-0.5, strong >0.5)
+ ERA5:
+  Trend contribution: 2.51% ± 2.69%
+  Seasonal contribution: 56.28% ± 10.38%
+  Residual contribution: 41.21% ± 9.66%
+  Seasonal strength F_S: 0.457 (weak <0.2, moderate 0.2-0.5, strong >0.5)
+
+4. STATIONARITY ASSESSMENT (ADF TEST)
+--------------------------------------------------------------------------------
+ IGS:
+  Original series stationary: 27/27 (100.0%)
+  Detrended series stationary: 27/27 (100.0%)
+  Improvement: 0 stations (0.0%)
+ VMF3:
+  Original series stationary: 27/27 (100.0%)
+  Detrended series stationary: 27/27 (100.0%)
+  Improvement: 0 stations (0.0%)
+ ERA5:
+  Original series stationary: 27/27 (100.0%)
+  Detrended series stationary: 27/27 (100.0%)
+  Improvement: 0 stations (0.0%)
+
+5. IMPACT ON SHORT-TERM VARIABILITY
+--------------------------------------------------------------------------------
+ IGS:
+  Mean Δσ%: -27.77% ± 10.84%
+  Median Δσ%: -24.40%
+  Impact classification: SUBSTANTIAL (>10%)
+ VMF3:
+  Mean Δσ%: -27.58% ± 10.70%
+  Median Δσ%: -26.94%
+  Impact classification: SUBSTANTIAL (>10%)
+ ERA5:
+  Mean Δσ%: -28.02% ± 10.55%
+  Median Δσ%: -27.30%
+  Impact classification: SUBSTANTIAL (>10%)
+
+6. VARIANCE REDUCTION AFTER DETRENDING
+--------------------------------------------------------------------------------
+ IGS:
+  Mean variance reduction: 46.70% ± 15.44%
+ VMF3:
+  Mean variance reduction: 46.45% ± 15.34%
+ ERA5:
+  Mean variance reduction: 47.12% ± 14.97%
+
+7. KEY CONCLUSION FOR MANUSCRIPT
+--------------------------------------------------------------------------------
+ * Trend component accounts for only 2.5% of total variance
+ * Detrending changes short-term variability by 27.79% on average
+ * Variance reduction from detrending is 46.76%
+ * Overall trend strength F_T: 0.030
+ * Overall seasonal strength F_S: 0.456
+
+ [!] RECOMMENDATION: Consider detrending for 3CH/ETC analysis
+     - Trends may influence short-term variability metrics
+
+================================================================================

@@ -1,12 +1,16 @@
 # =============================================================================
 # Import Required Libraries
 # =============================================================================
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
 # Load the uploaded Excel file to analyze the data
-file_path = 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/STATISTICAL analysis (Africa) 2_2.xlsx'
+file_path = REPO_ROOT / "Analysis" / "Results_3CH, ETC & DC" / "STATISTICAL analysis (Africa)_OUTLIER_removal+detrended.xlsx"
 data = pd.read_excel(file_path)
 
 # Display the first few rows of the data to understand its structure
@@ -41,7 +45,7 @@ print(summary_stats_filtered )
 #            =================================
 # ***********RMSE Boxplot with Grouped Methods***********
 #           ==================================
-output_path_rmse_grouped = "D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/FIGs_3ch_etc_dc_summary/RMSE_Boxplot_Grouped.png"
+output_path_rmse_grouped = REPO_ROOT / "Figures" / "RMSE_Boxplot_Grouped.png"
 plt.figure(figsize=(16, 10), dpi=1000)
 
 # Updated column order to group by dataset (IGS, VMF3, ERA5)
@@ -121,9 +125,7 @@ for spine in ax.spines.values():
 # # Save the plot as a high-resolution image file
 # =============================================================================
 output_file_rmse = (
-    'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/'
-    'DATA ANALYTICs/3CH analysis/FIGs_3ch_etc_dc_summary/'
-    'BOXplot_rmse_cc_3CH_ETC_DC1005.png'
+    REPO_ROOT / "Figures" / "BOXplot_rmse_cc_3CH_ETC_DC.png"
 )
 
 plt.savefig(output_file_rmse, dpi=1000, bbox_inches='tight')

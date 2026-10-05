@@ -1,125 +1,120 @@
 # A Three-Cornered Hat-Based Comparison of GNSS, VMF3, and ERA5 Precipitable Water Vapour Datasets over Africa
 
-**Authors:**  
-S. Osah¹*, A. A. Acheampong¹, S. A. Andam-Akorful¹, C. Gameti¹, R. M. Thundathil², C. Kelly³, B. Dadson¹, O. M. Abukari⁴, Y. Poku-Gyamfi⁵, T. B. Botchwey¹, J. Kojo¹, J. A. Quaye-Ballard¹, C. Fosu¹, I. Dadzie¹
+This repository contains the data, code, statistical outputs, and figures supporting the manuscript **“A Three-Cornered Hat-Based Comparison of GNSS, VMF3, and ERA5 Precipitable Water Vapour Datasets over Africa.”** The study evaluates GNSS/IGS-, ERA5-, and VMF3-derived precipitable water vapour (PWV) across Africa using Three-Cornered Hat (3CH), Extended Triple Collocation (ETC), and Direct Comparison (DC) methods, with additional normalised-RMSE (nRMSE) analysis.
 
-¹ Department of Geomatic Engineering, Kwame Nkrumah University of Science and Technology (KNUST), Kumasi, Ghana  
-² GFZ German Research Centre for Geosciences, Potsdam, Germany  
-³ Hangzhou International Innovation Institute of Beihang University, Hangzhou, China  
-⁴ Survey and Mapping Division, Lands Commission, Accra, Ghana  
-⁵ Council for Scientific and Industrial Research (CSIR) College of Science and Technology, Kumasi, Ghana
+## Study scope
 
-*Corresponding author:* Samuel Osah — osahsamuel@knust.edu.gh
+- **Period:** 2015–2022
+- **Final network:** 27 African IGS stations
+- **Data-completeness criterion:** at least 700 valid collocated days
+- **Core datasets:** GNSS/IGS PWV, ERA5 PWV, VMF3 PWV
+- **Uncertainty methods:** 3CH, ETC, and ERA5-referenced DC
+- **Relative-error metric:** ETC-derived nRMSE, normalised by station mean ERA5 PWV
 
-## Repository purpose
+Four stations considered during earlier screening (CGGN, DJIG, NURK, and RCMN) were excluded because they contained fewer than 700 valid collocated days. The screening record is provided in `Analysis/Results_Preprocessing/station_inclusion.csv`.
 
-This repository supports the manuscript **“A Three-Cornered Hat-Based Comparison of GNSS, VMF3, and ERA5 Precipitable Water Vapour Datasets over Africa.”** It contains processed station data, uncertainty-analysis code, summary products, and manuscript figures used to compare GNSS/IGS-, ERA5-, and VMF3-derived precipitable water vapour (PWV) over Africa during 2015–2022.
+## Public source data
 
-The revised manuscript uses **27 IGS stations** that satisfy a final data-completeness threshold of **at least 700 valid collocated days**. Four stations from the earlier analysis (CGGN, DJIG, NURK, and RCMN) are retained separately for transparency but are excluded from the final 27-station statistics.
-
-## Methods represented
-
-- **Three-Cornered Hat (3CH):** reference-independent uncertainty estimation.
-- **Extended Triple Collocation (ETC):** uncertainty and correlation with respect to a latent common signal.
-- **Direct Comparison (DC):** pairwise comparison using ERA5 as the reference dataset.
-- **Normalised RMSE (nRMSE):** ETC-derived RMSE scaled by station mean ERA5 PWV to contextualise relative uncertainty across different moisture regimes.
-
-## Data sources
-
-| Product | Role | Public source |
+| Product | Use in the study | Public source |
 |---|---|---|
-| IGS ZTD | GNSS tropospheric input | [NASA CDDIS](https://cddis.nasa.gov/archive/gnss/products/troposphere/zpd/) |
-| VMF3_OP | Model-based tropospheric product | [TU Wien VMF3 products](https://vmf.geo.tuwien.ac.at/trop_products/GNSS/VMF3/VMF3_OP/daily/) |
+| IGS tropospheric ZTD | GNSS-PWV retrieval | [NASA CDDIS](https://cddis.nasa.gov/archive/gnss/products/troposphere/zpd/) |
+| VMF3_OP | Model-based tropospheric/PWV product | [TU Wien VMF3 products](https://vmf.geo.tuwien.ac.at/trop_products/GNSS/VMF3/VMF3_OP/daily/) |
 | MERRA-2 M2I1NXASM v5.12.4 | Surface meteorological parameters used in GNSS-PWV retrieval | [NASA GES DISC](https://disc.gsfc.nasa.gov/datasets/M2I1NXASM_5.12.4/summary), DOI: [10.5067/3Z173KIE2TPD](https://doi.org/10.5067/3Z173KIE2TPD) |
 | ERA5-based site product | Comparison PWV product | [Wuhan University NWM service](http://gmet.users.sgg.whu.edu.cn/en/customized/NWMs-based-site/submit/) |
-
-The original processed/collocated station files supplied in the uploaded repository are preserved under `Data/legacy_collocated_PWVs/`. They document the earlier processing archive and include an ancillary `NGL_PWV` field that is not one of the three products forming the final 3CH/ETC triplet. The **validated 27-station statistics in `Analysis/final_27_station/` are the authoritative numerical source for the revised manuscript**.
 
 ## Repository structure
 
 ```text
 tch_pwv/
 ├── Analysis/
-│   ├── final_27_station/       # Statistics and summaries used in the revised manuscript
-│   └── legacy_31_station/      # Earlier outputs retained for provenance only
-├── Code/
-│   ├── final_manuscript/       # Portable scripts for the revised 27-station summaries
-│   └── *.m / *.py              # Original analysis/plotting scripts retained for provenance
+│   ├── Results_Preprocessing/       # station screening and preprocessing outputs
+│   ├── Results_3CH, ETC & DC/       # station, regional and continental statistics
+│   └── Derived_nRMSE_Summaries/     # reproducible summaries generated from the final 27-station table
+├── Code/                            # preprocessing, 3CH/ETC/DC, plotting and summary scripts
 ├── Data/
-│   ├── legacy_collocated_PWVs/ # Original processed station series from the uploaded repository
-│   │   ├── retained_in_final_27/
-│   │   └── excluded_lt700_days/
-│   ├── MCT/                    # Multiple-comparison input
-│   ├── station_inclusion.csv   # Completeness screening record
-│   └── IGS STATIONS-Africa.xlsx
-├── Figures/
-│   ├── final_27_station/       # Current nRMSE/ETC figures
-│   └── legacy_31_station/      # Earlier figures retained for provenance only
+│   ├── Collocated_PWVs (unpreprocessed)/
+│   │   └── PWVdata_27 stations(unpreprocessed).zip
+│   ├── IGS STATIONS-Africa_27sta.csv/.xlsx
+│   └── MCT/                         # multiple-comparison-test input
+├── Figures/                         # manuscript figures
 ├── CITATION.cff
-├── requirements.txt
+├── DATA_AVAILABILITY.md
 ├── REPRODUCIBILITY.md
-├── CHANGELOG.md
 ├── LICENSE
+├── LICENSES.md
+├── requirements.txt
 └── README.md
 ```
 
-## Quick start
+## Key analysis files
 
-### Python environment
+- `Analysis/Results_3CH, ETC & DC/STATISTICAL analysis (Africa)_OUTLIER_removal+detrended.xlsx` — core station-level 3CH/ETC/DC statistics used for the main uncertainty-comparison figures.
+- `Analysis/Results_3CH, ETC & DC/PWV_Statistics_Results_with_nRMSE2.csv` — integrated 27-station table containing mean ERA5 PWV, 3CH and ETC RMSE, ETC correlations, DC metrics, and nRMSE values used for the normalised-error analysis.
+- `Analysis/Derived_nRMSE_Summaries/` — regional, continental, network-wide, and pooled correlation summaries regenerated directly from the integrated 27-station table.
+- `Analysis/Results_Preprocessing/station_inclusion.csv` — final station-retention/exclusion record.
+- [`MANUSCRIPT_SOURCE_MAP.md`](MANUSCRIPT_SOURCE_MAP.md) — maps manuscript figure/result blocks to their primary archived analysis sources.
+
+## Reproduce the manuscript summaries
+
+Create a Python environment and install the dependencies:
 
 ```bash
 python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/macOS: source .venv/bin/activate
+# Windows
+.venv\Scripts\activate
+# Linux/macOS
+# source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-To reproduce the revised regional, continental, and network-wide ETC/nRMSE summaries:
+Regenerate the regional, continental, network-wide, and RMSE–R/SNR summary tables:
 
 ```bash
-python Code/final_manuscript/nrmse_summary_analysis.py
+python Code/reproduce_manuscript_summaries.py
 ```
 
-Generated CSV summaries are written to `Analysis/final_27_station/`.
+Regenerate the ETC/nRMSE figure suite:
 
-### MATLAB core analysis
+```bash
+python Code/etc_nrmse_figures.py
+```
 
-`Code/PWV_Analysis_TCH_ETC_DC.m` contains the original implementations of 3CH, ETC, and DC and is retained for methodological transparency. The original station time series supplied with the repository represent an earlier processing archive; therefore the validated final station-level statistics in `Analysis/final_27_station/` should be used for reproducing the revised manuscript summaries.
+Generated figures are written to `Figures/generated_etc_nrmse/`.
 
-> **Important:** several historical Python plotting scripts in `Code/` retain local Windows paths from the original analysis environment. They are preserved for provenance. The portable script in `Code/final_manuscript/` is the recommended entry point for the revised manuscript summaries.
+## Core processing workflow
 
-## Reproducibility note
+1. **Collocated daily PWV input** — `Data/Collocated_PWVs (unpreprocessed)/PWVdata_27 stations(unpreprocessed).zip` contains the 27 station CSV files.
+2. **Outlier detection and cleaning** — run `Code/OUTLIER_Detrending_nonlinear analysis_v3_5_1.py`. The default repository-relative configuration writes cleaned station files to `Analysis/Results_Preprocessing/Results_Outlier detection & removal/cleaned_per_station/`.
+3. **3CH/ETC/DC analysis** — run `Code/PWV_Analysis_TCH_ETC_DC_updated4.m` in MATLAB and select the cleaned station folder when prompted. The final script analyses `IGS_Hampel_clean`, `VMF3_Hampel_clean`, and `ERA5_Hampel_clean` and generates 3CH, ETC, DC, correlation, mean-PWV, and nRMSE outputs.
+4. **Detrending diagnostics/sensitivity analysis** — `Code/Detrending_analysis_stl_v3.py` evaluates temporal trends and STL components. It is retained for the preprocessing/sensitivity analysis and is not required as the direct input to the final 3CH/ETC/DC calculation in `PWV_Analysis_TCH_ETC_DC_updated4.m`.
+5. **Figures and summaries** — the remaining Python scripts generate the manuscript plots and regional/continental summaries.
 
-The original GitHub ZIP contained 31-station analysis outputs and processed station files from an earlier workflow. The revised manuscript uses a 27-station post-screening analysis and updated validated statistics. Because the exact final post-QC/collocation station time series were not present in the uploaded ZIP, the repository separates the earlier materials as **legacy** and provides the validated final 27-station statistics and derived summaries as the authoritative source for the revised manuscript. For full end-to-end reproduction from daily PWV time series, the exact final post-QC station files should be added when available.
+See [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) and [`Code/README.md`](Code/README.md) for detailed execution notes.
 
-## Final 27-station analysis products
+## nRMSE and ETC correlation analysis
 
-`Analysis/final_27_station/PWV_Statistics_Results_with_nRMSE.csv` is the validated station-level statistics table used for the revised manuscript. It includes 3CH and ETC RMSE, ETC correlation coefficients, DC metrics, mean ERA5 PWV, and normalised RMSE.
+The manuscript's relative-error analysis uses
 
-The accompanying summary files provide:
+`nRMSE_ETC (%) = ETC RMSE / mean ERA5 PWV × 100`.
 
-- `regional_ETC_summary.csv` — regional mean ETC RMSE, nRMSE, and ETC correlation;
-- `continental_ETC_summary.csv` — continental-scale means across the 27 retained stations;
-- `network_correlation_summary.csv` — network-wide Pearson correlations of mean PWV with absolute RMSE, nRMSE, and `R_ETC`;
-- `regional_IGS_pwv_correlations.csv` — regional Pearson relationships between mean PWV and IGS absolute/nRMSE metrics where at least two stations are available;
-- `pooled_metric_relationships.csv` — pooled ETC RMSE/nRMSE/`R_ETC` relationships used in the SNR discussion.
+The final summary script reproduces the reported station-to-region/continent aggregation, network-wide Pearson correlations with mean PWV, and the pooled relationships among absolute ETC RMSE, nRMSE, `R_ETC`, and the SNR-related quantity `1 − R_ETC²`.
 
-## Data-completeness screening
-
-The final revision applies a minimum threshold of **700 valid collocated days**. `Data/station_inclusion.csv` records the number of valid observations in the archived station files and the final inclusion/exclusion status. The four excluded stations (CGGN, DJIG, NURK, and RCMN) are preserved under `Data/legacy_collocated_PWVs/excluded_lt700_days/` for transparency.
-
-## Citation
-
-If you use this repository, please cite the associated manuscript and this repository. A machine-readable citation record is provided in [`CITATION.cff`](./CITATION.cff).
+## Citation and archive
 
 Repository: https://github.com/osahsam/tch_pwv
 
-## Licence
+A machine-readable citation file is provided in [`CITATION.cff`](CITATION.cff). 
 
-This repository is distributed under the [Apache License 2.0](./LICENSE).
+## Licensing
+
+- **Source code:** Apache License 2.0 (`LICENSE`)
+- **Author-generated data, figures, and documentation:** CC BY 4.0, unless otherwise stated
+- **External source datasets:** remain subject to the terms of their original providers
+
+See [`LICENSES.md`](LICENSES.md) for details.
 
 ## Contact
 
 **Samuel Osah**  
-Department of Geomatic Engineering, KNUST, Kumasi, Ghana  
-osahsamuel@knust.edu.gh
+Department of Geomatic Engineering, Kwame Nkrumah University of Science and Technology (KNUST), Kumasi, Ghana  
+ORCID: 0000-0002-6905-2082

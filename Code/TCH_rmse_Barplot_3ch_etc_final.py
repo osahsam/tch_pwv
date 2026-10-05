@@ -1,10 +1,14 @@
+from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 
 # =============================================================================
 # Load the uploaded Excel file to analyze the data
 # =============================================================================
-file_path = 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/STATISTICAL analysis (Africa) 2_2.xlsx'
+file_path = REPO_ROOT / "Analysis" / "Results_3CH, ETC & DC" / "STATISTICAL analysis (Africa)_OUTLIER_removal+detrended.xlsx"
 data = pd.ExcelFile(file_path)
 
 # Load the data from the first sheet
@@ -73,7 +77,7 @@ plt.tight_layout()
 # =============================================================================
 # Save the graph to a high-resolution image file (300 dpi)
 # =============================================================================
-output_file = 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/FIGs_3ch_etc/Barplot_rmse_3CH_ETC1002.png'
+output_file = REPO_ROOT / "Figures" / "Barplot_rmse_3CH_ETC.png"
 
 fig.savefig(output_file, dpi=1000, bbox_inches='tight')
 
@@ -132,7 +136,7 @@ plt.tight_layout()
 # =============================================================================
 # Save the graph to a high-resolution image file (300 dpi)
 # =============================================================================
-output_file = 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/FIGs_3ch_etc/Barplot_rmse_3CH_ETC2002.png'
+output_file = REPO_ROOT / "Figures" / "Barplot_rmse_3CH_ETC.png"
 
 fig.savefig(output_file, dpi=1000, bbox_inches='tight')
 
@@ -199,7 +203,7 @@ plt.tight_layout()
 # =============================================================================
 # Save the graph to a high-resolution image file (300 dpi)
 # =============================================================================
-output_file = 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/FIGs_3ch_etc/Barplot_rmse_3CH_ETC3002.png'
+output_file = REPO_ROOT / "Figures" / "Barplot_rmse_3CH_ETC.png"
 
 fig.savefig(output_file, dpi=1000, bbox_inches='tight')
 
@@ -265,7 +269,7 @@ plt.tight_layout()
 # =============================================================================
 # # Save the updated graph
 # =============================================================================
-output_file_diff_3ch_etc= 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/FIGs_3ch_etc/Barplot_diff_3CH_ETC0001.png'
+output_file_diff_3ch_etc = REPO_ROOT / "Figures" / "Barplot_diff_3CH_ETC.png"
 fig.savefig(output_file_diff_3ch_etc, dpi=1000, bbox_inches='tight')
 
 # Display the figure 

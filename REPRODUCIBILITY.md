@@ -1,36 +1,102 @@
 # Reproducibility guide
 
-## Scope
+## 1. Environment
 
-The revised manuscript uses 27 stations that meet the >=700 valid-collocated-day criterion. The final station-level statistics are stored in `Analysis/final_27_station/PWV_Statistics_Results_with_nRMSE.csv`.
-
-## Reproduce manuscript summary tables
-
-1. Create a Python environment and install `requirements.txt`.
-2. Run:
+Python 3.10+ is recommended.
 
 ```bash
-python Code/final_manuscript/nrmse_summary_analysis.py
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# Linux/macOS
+# source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-3. Compare the regenerated CSV files in `Analysis/final_27_station/` with the manuscript tables/figures.
+MATLAB R2016b or later is required for the core 3CH/ETC/DC and multiple-comparison scripts.
 
-## Core 3CH/ETC/DC implementation
+## 2. Final station cohort
 
-The original MATLAB implementation is `Code/PWV_Analysis_TCH_ETC_DC.m`. It expects one collocated station CSV per file, with PWV values in metres; the script converts PWV to millimetres internally. The daily station files bundled in the original ZIP are preserved under `Data/legacy_collocated_PWVs/` and correspond to an earlier processing stage. They should not be assumed to reproduce the revised 27-station numerical results exactly. The final validated station-level statistics are stored in `Analysis/final_27_station/`.
+The manuscript uses 27 stations satisfying the minimum threshold of **700 valid collocated days**. The screening table is:
 
-## Data completeness
+`Analysis/Results_Preprocessing/station_inclusion.csv`
 
-`Data/station_inclusion.csv` lists all originally considered stations, the valid-day counts in the archived files, and their final inclusion/exclusion status. The archived time series are separated into retained and excluded subfolders under `Data/legacy_collocated_PWVs/`.
+The raw collocated 27-station archive is:
 
-## Legacy materials
+`Data/Collocated_PWVs (unpreprocessed)/PWVdata_27 stations(unpreprocessed).zip`
 
-Earlier 31-station outputs and figures are preserved in `Analysis/legacy_31_station/` and `Figures/legacy_31_station/`. They are provided only for provenance and should not be used to reproduce the revised manuscript's numerical results.
+## 3. Outlier cleaning
 
-## External source data
+Run:
 
-See the data-source table in the root `README.md` for the IGS, VMF3, MERRA-2, and ERA5 access points.
+```bash
+python "Code/OUTLIER_Detrending_nonlinear analysis_v3_5_1.py"
+```
 
-## Important version note
+The script uses repository-relative defaults and writes cleaned station files under:
 
-The original repository materials and the revised 27-station statistics are not numerically identical, indicating that the manuscript revision incorporated an updated processing/QC/collocation stage that was not included in the uploaded ZIP. Before final public release, add the exact final post-QC station time series and any preprocessing code required to regenerate `PWV_Statistics_Results_with_nRMSE.csv` from those time series.
+`Analysis/Results_Preprocessing/Results_Outlier detection & removal/cleaned_per_station/`
+
+## 4. Core 3CH, ETC, DC and nRMSE analysis
+
+Open MATLAB and run:
+
+`Code/PWV_Analysis_TCH_ETC_DC_updated4.m`
+
+When prompted, select the `cleaned_per_station` directory from Step 3. The script analyses the Hampel-cleaned IGS/VMF3/ERA5 PWV columns and generates station-level 3CH/ETC/DC statistics, ETC correlation, mean ERA5 PWV, and nRMSE.
+
+The final integrated table archived with this repository is:
+
+`Analysis/Results_3CH, ETC & DC/PWV_Statistics_Results_with_nRMSE2.csv`
+
+## 5. Detrending/STL sensitivity analysis
+
+The STL/detrending assessment can be run independently:
+
+```bash
+python Code/Detrending_analysis_stl_v3.py \
+  --input "Analysis/Results_Preprocessing/Results_Outlier detection & removal/cleaned_per_station" \
+  --output "Analysis/Results_Preprocessing/Results_Detrending"
+```
+
+This step quantifies trends, seasonal components, stationarity, and the effect of detrending. The final 3CH/ETC/DC script reads the Hampel-cleaned series directly; the STL workflow is therefore retained as a diagnostic/sensitivity analysis rather than a mandatory final-analysis input.
+
+## 6. Manuscript summary tables
+
+Run:
+
+```bash
+python Code/reproduce_manuscript_summaries.py
+```
+
+Outputs are saved to:
+
+`Analysis/Derived_nRMSE_Summaries/`
+
+The script also writes `validation_report.txt`, which verifies the 27-station cohort against the station-inclusion table and collocated-data archive.
+
+## 7. ETC/nRMSE figures
+
+Run:
+
+```bash
+python Code/etc_nrmse_figures.py
+```
+
+Outputs are saved as PNG and PDF under:
+
+`Figures/generated_etc_nrmse/`
+
+The script uses Pearson correlation for the reported network-wide and RMSE/R/SNR relationships.
+
+## 8. Multiple-comparison test
+
+Run MATLAB function `mct.m` using:
+
+`Data/MCT/MCTdata_RMSE-3CH_ETC_DC.csv`
+
+The analysis implements the manuscript's multiple-comparison testing of the RMSE estimates.
+
+## 9. Reproducibility boundaries
+
+Original source products remain available from the IGS/CDDIS, TU Wien VMF3, NASA GES DISC MERRA-2, and Wuhan University ERA5-related services listed in `DATA_AVAILABILITY.md`. This repository archives the collocated/processed station data and analysis materials required to reproduce the manuscript-level statistics and figures; users seeking to rebuild the PWV time series from the original external products should retrieve those source products from their official repositories.

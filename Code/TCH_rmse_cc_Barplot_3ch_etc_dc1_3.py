@@ -1,14 +1,18 @@
 # =============================================================================
 # 1. Import Required Libraries
 # =============================================================================
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
 # =============================================================================
 # 2. Load the Excel file and parse the first sheet
 # =============================================================================
-file_path = 'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/DATA ANALYTICs/3CH analysis/STATISTICAL analysis (Africa) 2_2.xlsx'
+file_path = REPO_ROOT / "Analysis" / "Results_3CH, ETC & DC" / "STATISTICAL analysis (Africa)_OUTLIER_removal+detrended.xlsx"
 df = pd.read_excel(file_path, sheet_name='Sheet1')
 
 # Display the first few rows to confirm structure
@@ -225,11 +229,7 @@ axs[1].legend(
 plt.tight_layout()
 
 
-output_file = (
-    'D:/DATA/ATMOSPHERE data/TROPOSPHERE data/'
-    'DATA ANALYTICs/3CH analysis/FIGs_3ch_etc_dc/'
-    'Barplot_rmse_cc_3CH_ETC_DC0005.png'
-)
+output_file = REPO_ROOT / "Figures" / "Barplot_rmse_cc_3CH_ETC_DC.png"
 fig.savefig(output_file, dpi=1000, bbox_inches='tight')
 
 print(f"Plot saved successfully to {output_file}")

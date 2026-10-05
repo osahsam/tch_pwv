@@ -1,0 +1,9 @@
+Repository validation report
+================================
+Final station statistics: 27 stations
+Unique station IDs: 27
+Retained stations in station_inclusion.csv: 27
+Retained station set matches final statistics: True
+Station CSVs in collocated archive: 27
+Collocated archive station set matches final statistics: True
+Station files with missing required columns: 0
